@@ -37,7 +37,7 @@ class Responder(Component):
 
 class Requester(Component):
     def make_query(self):
-        self.push(Query("hello"))
+        self.push(Query("hello"), "query")
 
     def query_success(self, evt, handler, retval):
         print "Requester got query response: %s" % retval

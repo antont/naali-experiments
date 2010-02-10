@@ -6,12 +6,13 @@ This was inspired by a need with inventory services in Naali:
 
 It would be nice if parts of Naali like inventory impls and their
 users would not be tightly coupled. The service interfaces we have now
-are one solution for that, but another idea would be to just use events.
+are one solution for that, but another idea would be to use events.
 
-A problem with events is that how to get a reply to a query event.
-For example when someone wants to know what name an asset uuid has -- 
-with opensim currently assets themselves don't have names but in inventory they do,
-so the viewer gui must query the inventory to be able to show them.
+A problem with events is how to get a reply to a query event. For
+example when someone wants to know what name an asset uuid has -- with
+opensim currently assets themselves don't have names but in inventory
+they do, so the viewer gui must query the inventory to be able to show
+names e.g. when assigning a mesh or a material asset to a scene object.
 
 This is a working implementation of such a query event, with two
 separate components (could be modules in Naali), Responder and a

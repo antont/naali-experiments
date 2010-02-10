@@ -30,6 +30,7 @@ from circuits import Debugger
 from circuits import Event, Component
 
 class Query(Event):
+    channel = "query" #defaults to this from event name but i like explicit
     success = ("query_success",) #channel for success replies, target omitted
 
 class Responder(Component):
@@ -38,7 +39,7 @@ class Responder(Component):
 
 class Requester(Component):
     def make_query(self):
-        self.push(Query("hello"), "query") #sends a Query event on channel 'query'
+        self.push(Query("hello")) #sends a Query event
 
     def query_success(self, evt, handler, retval):
         print "Requester got query response: %s" % retval
